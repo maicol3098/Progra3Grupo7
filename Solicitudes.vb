@@ -83,7 +83,54 @@ Public Class Solicitudes
         End If
     End Sub
 
+    Private Sub DataGridView1_CellValueChanged(sender As Object, e As DataGridViewCellEventArgs)
+        ' Revisar por cambios
+        If DataGridView1.Columns.Contains("ESTADO") AndAlso e.ColumnIndex = DataGridView1.Columns("ESTADO").Index Then
+            ' Confirmar cambios
+            Dim result As DialogResult = MessageBox.Show("¿Quiere realizar los cambios?", "Confirmar", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
 
+            If result = DialogResult.Yes Then
+                ' Actualizar la tabla
+                Try
+                    DataGridView1.EndEdit()
+
+                    Me.Validate()
+                    Me.BindingContext(Me.Progra3DataSet.SOLICITUDES).EndCurrentEdit()
+
+                    UpdateDatabase()
+                    MessageBox.Show("Actualización completa.")
+
+                    ' Obtener el email y estado de la fila actual
+                    Dim email As String = DataGridView1.Rows(e.RowIndex).Cells("EMAIL").Value.ToString()
+                    Dim estado As String = DataGridView1.Rows(e.RowIndex).Cells("ESTADO").Value.ToString()
+                    Dim fechaInicio As DateTime = Convert.ToDateTime(DataGridView1.Rows(e.RowIndex).Cells("FECHA_INICIO").Value)
+                    Dim fechaFin As DateTime = Convert.ToDateTime(DataGridView1.Rows(e.RowIndex).Cells("FECHA_FIN").Value)
+
+                    ' Crear el mensaje de correo basado en el estado
+                    Dim subject As String = "Estado de Solicitud de Vacaciones"
+                    Dim body As String
+                    If estado = "Aprobado" Then
+                        body = $"Sus vacaciones han sido aprobadas del {fechaInicio.ToString("dd/MM/yyyy")} al {fechaFin.ToString("dd/MM/yyyy")}."
+                    ElseIf estado = "Denegado" Then
+                        body = $"Sus vacaciones del {fechaInicio.ToString("dd/MM/yyyy")} al {fechaFin.ToString("dd/MM/yyyy")} han sido denegadas."
+                    Else
+                        body = $"El estado de su solicitud ha cambiado."
+                    End If
+
+                    ' Enviar el correo
+                    emailSender.SendEmail(email, subject, body)
+
+                Catch ex As Exception
+                    MessageBox.Show("Sucedió un error: " & ex.Message)
+                End Try
+            Else
+                ' Revertir cambios si se confirma "no"
+                RemoveHandler DataGridView1.CellValueChanged, AddressOf DataGridView1_CellValueChanged
+                DataGridView1.CancelEdit()
+                Me.SOLICITUDESTableAdapter.Fill(Me.Progra3DataSet.SOLICITUDES)
+                AddHandler DataGridView1.CellValueChanged, AddressOf DataGridView1_CellValueChanged
+            End If
+        End If
     End Sub
 
     Private Sub UpdateDatabase()
