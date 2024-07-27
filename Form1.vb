@@ -48,10 +48,4 @@
         Me.Visible = False
     End Sub
 
-    Private Sub btnconsultarvacaciones_Click(sender As Object, e As EventArgs) Handles btnconsultarvacaciones.Click
-        ' ir a la pagina de consultar vacaciones
-        Dim form1 As New MisSolicitudes(vusuario, Me)
-        form1.Show()
-        Me.Visible = False
-    End Sub
 End Class

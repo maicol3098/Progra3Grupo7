@@ -111,6 +111,24 @@
 
     End Sub
 
+    Private Sub Btnlogin_Click(sender As Object, e As EventArgs) Handles Btnlogin.Click
 
+        'redireccion al la forma de login
+        Dim login As New login()
+        login.Show()
+
+
+        Me.Visible() = False
+
+    End Sub
+
+    Private Sub btnsalir_Click(sender As Object, e As EventArgs) Handles btnsalir.Click
+        'boton de salir
+        Application.Exit()
+    End Sub
+
+    Private Sub registro_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        'ocultar los valores de contrasena
+        txtclave.UseSystemPasswordChar = True
     End Sub
 End Class
