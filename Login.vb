@@ -2,15 +2,16 @@
     Dim Conexion As Conexion = New Conexion()
 
     Private Sub Btnguardar_Click(sender As Object, e As EventArgs) Handles btnlogin.Click
-        Dim strsql, vusuario, vclave, VID As String
+        Dim strsql, vusuario, vclave, VID, nombre As String
         Dim j, isAdmin As Integer
-
+        'iniciar variables
         strsql = ""
         vusuario = ""
         vclave = ""
         j = 0
         VID = ""
         isAdmin = 0
+        nombre = ""
 
         Try
             If txtid.Text = "" Or txtclave.Text = "" Then
@@ -21,7 +22,7 @@
                 j = Len(txtclave.Text)
                 VID = txtid.Text
                 vclave = txtclave.Text
-
+                ' buscar el usuario para confirmar si existe
                 Conexion.consultar("SELECT * FROM USERS WHERE USUARIO= '" + vusuario + "'", "USERS")
 
                 If Conexion.ds.Tables("USERS").Rows.Count > 0 Then
@@ -31,7 +32,11 @@
                 End If
 
                 If f = 0 Then
+
+                    'desencriptar la contrasena y comparar con la contrasena digitada por los usuarios
+
                     Dim contraseñaAlmacenada As String = Conexion.ds.Tables("USERS").Rows(0)("CLAVE").ToString()
+                    Dim nombreAlmacenado As String = Conexion.ds.Tables("USERS").Rows(0)("NOMBRE").ToString()
                     Dim contraseñaEncriptada As String = Conexion.encriptarcontrasena(vclave)
 
                     ' codigo para revisar si hay nulos
@@ -44,7 +49,7 @@
                     If contraseñaAlmacenada = contraseñaEncriptada Then
                         MessageBox.Show("Login exitoso", "", MessageBoxButtons.OK, MessageBoxIcon.Warning)
 
-                        Dim form1 As New Form1(vusuario, isAdmin)
+                        Dim form1 As New Form1(vusuario, isAdmin, nombreAlmacenado)
                         form1.Show()
                         Me.Visible = False
                         f = 0
@@ -62,19 +67,33 @@
     End Sub
 
     Private Sub login_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+
+        'ocultar los valores de contrasena
+
         txtclave.UseSystemPasswordChar = True
     End Sub
 
     Private Sub btnregistrar_Click(sender As Object, e As EventArgs) Handles btnregistrar.Click
+        'boton de registrar
+
         Dim registro As New registro()
         registro.Show()
         Me.Visible = False
     End Sub
 
     Private Sub Btnsalir_Click(sender As Object, e As EventArgs) Handles Btnsalir.Click
+        'boton de salir
         Application.Exit()
     End Sub
 
     Private Sub Label1_Click(sender As Object, e As EventArgs) Handles Label1.Click
+    End Sub
+
+    Private Sub Label5_Click(sender As Object, e As EventArgs)
+
+    End Sub
+
+    Private Sub TextBox2_TextChanged(sender As Object, e As EventArgs)
+
     End Sub
 End Class

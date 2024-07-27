@@ -182,6 +182,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="conexion.vb" />
+    <Compile Include="EmailSender.vb" />
     <Compile Include="Form1.vb">
       <SubType>Form</SubType>
     </Compile>
@@ -202,7 +203,6 @@
     <Compile Include="MisSolicitudes.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Module1.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">
       <AutoGen>True</AutoGen>
@@ -292,6 +292,9 @@
     <None Include="Progra3DataSet.xss">
       <DependentUpon>Progra3DataSet.xsd</DependentUpon>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\WhatsApp Image 2024-07-11 at 7.55.27 PM.jpeg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
   <Import Project="packages\Microsoft.Data.SqlClient.SNI.5.2.0\build\net462\Microsoft.Data.SqlClient.SNI.targets" Condition="Exists('packages\Microsoft.Data.SqlClient.SNI.5.2.0\build\net462\Microsoft.Data.SqlClient.SNI.targets')" />

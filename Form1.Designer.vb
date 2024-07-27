@@ -36,53 +36,68 @@ Partial Class Form1
         '
         'btnsalir
         '
-        Me.btnsalir.Location = New System.Drawing.Point(1383, 816)
+        Me.btnsalir.BackColor = System.Drawing.SystemColors.ActiveCaptionText
+        Me.btnsalir.Font = New System.Drawing.Font("Yu Gothic UI", 10.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnsalir.ForeColor = System.Drawing.SystemColors.ButtonHighlight
+        Me.btnsalir.Location = New System.Drawing.Point(1497, 764)
         Me.btnsalir.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.btnsalir.Name = "btnsalir"
-        Me.btnsalir.Size = New System.Drawing.Size(112, 36)
+        Me.btnsalir.Size = New System.Drawing.Size(181, 51)
         Me.btnsalir.TabIndex = 27
         Me.btnsalir.Text = "SALIR"
-        Me.btnsalir.UseVisualStyleBackColor = True
+        Me.btnsalir.UseVisualStyleBackColor = False
         '
         'lbltitle1
         '
         Me.lbltitle1.AutoSize = True
-        Me.lbltitle1.Location = New System.Drawing.Point(93, 86)
+        Me.lbltitle1.Font = New System.Drawing.Font("Yu Gothic", 16.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lbltitle1.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
+        Me.lbltitle1.Location = New System.Drawing.Point(80, 179)
         Me.lbltitle1.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.lbltitle1.Name = "lbltitle1"
-        Me.lbltitle1.Size = New System.Drawing.Size(222, 25)
+        Me.lbltitle1.Size = New System.Drawing.Size(480, 55)
         Me.lbltitle1.TabIndex = 20
         Me.lbltitle1.Text = "Bienvenido al sistema"
         '
         'btnsolicitudes
         '
-        Me.btnsolicitudes.Location = New System.Drawing.Point(242, 208)
+        Me.btnsolicitudes.BackColor = System.Drawing.SystemColors.ActiveCaptionText
+        Me.btnsolicitudes.Font = New System.Drawing.Font("Yu Gothic", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnsolicitudes.ForeColor = System.Drawing.SystemColors.ButtonHighlight
+        Me.btnsolicitudes.Location = New System.Drawing.Point(89, 358)
         Me.btnsolicitudes.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.btnsolicitudes.Name = "btnsolicitudes"
-        Me.btnsolicitudes.Size = New System.Drawing.Size(264, 39)
+        Me.btnsolicitudes.RightToLeft = System.Windows.Forms.RightToLeft.No
+        Me.btnsolicitudes.Size = New System.Drawing.Size(417, 72)
         Me.btnsolicitudes.TabIndex = 28
         Me.btnsolicitudes.Text = "Ver solicitudes"
-        Me.btnsolicitudes.UseVisualStyleBackColor = True
+        Me.btnsolicitudes.UseVisualStyleBackColor = False
         '
         'btnhacersolicitud
         '
-        Me.btnhacersolicitud.Location = New System.Drawing.Point(242, 289)
+        Me.btnhacersolicitud.BackColor = System.Drawing.SystemColors.ActiveCaptionText
+        Me.btnhacersolicitud.Font = New System.Drawing.Font("Yu Gothic", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnhacersolicitud.ForeColor = System.Drawing.SystemColors.ButtonHighlight
+        Me.btnhacersolicitud.Location = New System.Drawing.Point(89, 470)
         Me.btnhacersolicitud.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.btnhacersolicitud.Name = "btnhacersolicitud"
-        Me.btnhacersolicitud.Size = New System.Drawing.Size(264, 39)
+        Me.btnhacersolicitud.Size = New System.Drawing.Size(417, 74)
         Me.btnhacersolicitud.TabIndex = 29
         Me.btnhacersolicitud.Text = "Hacer solicitud"
-        Me.btnhacersolicitud.UseVisualStyleBackColor = True
+        Me.btnhacersolicitud.UseVisualStyleBackColor = False
         '
         'btnconsultarvacaciones
         '
-        Me.btnconsultarvacaciones.Location = New System.Drawing.Point(242, 364)
+        Me.btnconsultarvacaciones.BackColor = System.Drawing.SystemColors.ActiveCaptionText
+        Me.btnconsultarvacaciones.Font = New System.Drawing.Font("Yu Gothic", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnconsultarvacaciones.ForeColor = System.Drawing.SystemColors.ButtonHighlight
+        Me.btnconsultarvacaciones.Location = New System.Drawing.Point(89, 578)
         Me.btnconsultarvacaciones.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.btnconsultarvacaciones.Name = "btnconsultarvacaciones"
-        Me.btnconsultarvacaciones.Size = New System.Drawing.Size(264, 68)
+        Me.btnconsultarvacaciones.Size = New System.Drawing.Size(417, 80)
         Me.btnconsultarvacaciones.TabIndex = 30
         Me.btnconsultarvacaciones.Text = "Mis solicitudes"
-        Me.btnconsultarvacaciones.UseVisualStyleBackColor = True
+        Me.btnconsultarvacaciones.UseVisualStyleBackColor = False
         '
         'NOTABindingSource
         '
@@ -96,14 +111,19 @@ Partial Class Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(12.0!, 25.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(2038, 906)
+        Me.BackColor = System.Drawing.SystemColors.ButtonHighlight
+        Me.BackgroundImage = Global.PARCIAL1.My.Resources.Resources.WhatsApp_Image_2024_07_11_at_7_55_27_PM
+        Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
+        Me.ClientSize = New System.Drawing.Size(1924, 906)
         Me.Controls.Add(Me.btnconsultarvacaciones)
         Me.Controls.Add(Me.btnhacersolicitud)
         Me.Controls.Add(Me.btnsolicitudes)
         Me.Controls.Add(Me.lbltitle1)
         Me.Controls.Add(Me.btnsalir)
+        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D
         Me.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.Name = "Form1"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Form1"
         CType(Me.NOTABindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.NOTABindingSource1, System.ComponentModel.ISupportInitialize).EndInit()

@@ -2,65 +2,56 @@
     Dim Conexion As Conexion = New Conexion()
     Private vusuario As String
     Private isAdmin As Integer
+    Private vnombre As String
 
-    ' contrcutor por defecto
+    ' Contructor por default
     Public Sub New()
-        ' 
         InitializeComponent()
     End Sub
 
-    ' contrcutor con parametros desde login
-    Public Sub New(vusuario As String, isAdmin As Integer)
-
+    ' Constructor con parametros de login
+    Public Sub New(vusuario As String, isAdmin As Integer, vnombre As String)
         InitializeComponent()
-
-        ' aqui se pueden agregar mas parametros que acepte el contrcutor
         Me.vusuario = vusuario
         Me.isAdmin = isAdmin
+        Me.vnombre = vnombre
     End Sub
 
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         MsgBox("Bienvenido al sistema")
         Conexion.conectar()
 
-        ' actualizar el titulo si es administrador
+        ' Actualizar titulo si es administrador
         Dim adminText As String = If(isAdmin = 1, "(administrador)", "")
-        lbltitle1.Text = $"Bienvenido - {vusuario} {adminText}"
+        lbltitle1.Text = $"Bienvenido - {vnombre} {adminText}"
 
-        ' ocultar botones de adminitrador si no es administrador
+        ' Ocultar botones para usuarios estandard
         btnsolicitudes.Visible = (isAdmin = 1)
     End Sub
 
     Private Sub btnsalir_Click(sender As Object, e As EventArgs) Handles btnsalir.Click
-        'boton de salir
+        ' Boton de salir
         Application.Exit()
     End Sub
 
     Private Sub btnsolicitudes_Click(sender As Object, e As EventArgs) Handles btnsolicitudes.Click
-        'ir a la pagina de solicitudes
+        ' ir a la pagina de solicitudes
         Dim solicitudesform As New Solicitudes(Me)
         solicitudesform.Show()
         Me.Hide()
     End Sub
 
     Private Sub btnhacersolicitud_Click(sender As Object, e As EventArgs) Handles btnhacersolicitud.Click
-
-        'ir a la pagina de solicitudes
-
-        Dim nuevaSolicitudForm As New NuevaSolicitud(Me)
-        nuevaSolicitudForm.Show()
-
-        Me.Hide()
-
+        ' ir a la pagina de hacer solicitud
+        Dim form1 As New NuevaSolicitud(vusuario, Me)
+        form1.Show()
+        Me.Visible = False
     End Sub
 
     Private Sub btnconsultarvacaciones_Click(sender As Object, e As EventArgs) Handles btnconsultarvacaciones.Click
-
-        'ir a la pagina de mis solicitudes
-
-        Dim misSolicitudForm As New MisSolicitudes(Me)
-        misSolicitudForm.Show()
-
-        Me.Hide()
+        ' ir a la pagina de consultar vacaciones
+        Dim form1 As New MisSolicitudes(vusuario, Me)
+        form1.Show()
+        Me.Visible = False
     End Sub
 End Class

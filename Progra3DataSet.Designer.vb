@@ -283,8 +283,6 @@ Partial Public Class Progra3DataSet
     Partial Public Class SOLICITUDESDataTable
         Inherits Global.System.Data.TypedTableBase(Of SOLICITUDESRow)
         
-        Private columnID As Global.System.Data.DataColumn
-        
         Private columnIDENTIFICATION As Global.System.Data.DataColumn
         
         Private columnNOMBRE As Global.System.Data.DataColumn
@@ -298,6 +296,10 @@ Partial Public Class Progra3DataSet
         Private columnFECHA_INICIO As Global.System.Data.DataColumn
         
         Private columnESTADO As Global.System.Data.DataColumn
+        
+        Private columnEMAIL As Global.System.Data.DataColumn
+        
+        Private columnID As Global.System.Data.DataColumn
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
@@ -333,14 +335,6 @@ Partial Public Class Progra3DataSet
             MyBase.New(info, context)
             Me.InitVars
         End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public ReadOnly Property IDColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columnID
-            End Get
-        End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
@@ -399,6 +393,22 @@ Partial Public Class Progra3DataSet
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public ReadOnly Property EMAILColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnEMAIL
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public ReadOnly Property IDColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnID
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0"),  _
          Global.System.ComponentModel.Browsable(false)>  _
         Public ReadOnly Property Count() As Integer
@@ -435,9 +445,9 @@ Partial Public Class Progra3DataSet
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Overloads Function AddSOLICITUDESRow(ByVal IDENTIFICATION As String, ByVal NOMBRE As String, ByVal APELLIDO As String, ByVal HORAS As Integer, ByVal FECHA_FIN As Date, ByVal FECHA_INICIO As Date, ByVal ESTADO As String) As SOLICITUDESRow
+        Public Overloads Function AddSOLICITUDESRow(ByVal IDENTIFICATION As String, ByVal NOMBRE As String, ByVal APELLIDO As String, ByVal HORAS As Integer, ByVal FECHA_FIN As Date, ByVal FECHA_INICIO As Date, ByVal ESTADO As String, ByVal EMAIL As String) As SOLICITUDESRow
             Dim rowSOLICITUDESRow As SOLICITUDESRow = CType(Me.NewRow,SOLICITUDESRow)
-            Dim columnValuesArray() As Object = New Object() {Nothing, IDENTIFICATION, NOMBRE, APELLIDO, HORAS, FECHA_FIN, FECHA_INICIO, ESTADO}
+            Dim columnValuesArray() As Object = New Object() {IDENTIFICATION, NOMBRE, APELLIDO, HORAS, FECHA_FIN, FECHA_INICIO, ESTADO, EMAIL, Nothing}
             rowSOLICITUDESRow.ItemArray = columnValuesArray
             Me.Rows.Add(rowSOLICITUDESRow)
             Return rowSOLICITUDESRow
@@ -460,7 +470,6 @@ Partial Public Class Progra3DataSet
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
         Friend Sub InitVars()
-            Me.columnID = MyBase.Columns("ID")
             Me.columnIDENTIFICATION = MyBase.Columns("IDENTIFICATION")
             Me.columnNOMBRE = MyBase.Columns("NOMBRE")
             Me.columnAPELLIDO = MyBase.Columns("APELLIDO")
@@ -468,13 +477,13 @@ Partial Public Class Progra3DataSet
             Me.columnFECHA_FIN = MyBase.Columns("FECHA_FIN")
             Me.columnFECHA_INICIO = MyBase.Columns("FECHA_INICIO")
             Me.columnESTADO = MyBase.Columns("ESTADO")
+            Me.columnEMAIL = MyBase.Columns("EMAIL")
+            Me.columnID = MyBase.Columns("ID")
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
         Private Sub InitClass()
-            Me.columnID = New Global.System.Data.DataColumn("ID", GetType(Integer), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnID)
             Me.columnIDENTIFICATION = New Global.System.Data.DataColumn("IDENTIFICATION", GetType(String), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnIDENTIFICATION)
             Me.columnNOMBRE = New Global.System.Data.DataColumn("NOMBRE", GetType(String), Nothing, Global.System.Data.MappingType.Element)
@@ -489,15 +498,20 @@ Partial Public Class Progra3DataSet
             MyBase.Columns.Add(Me.columnFECHA_INICIO)
             Me.columnESTADO = New Global.System.Data.DataColumn("ESTADO", GetType(String), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnESTADO)
+            Me.columnEMAIL = New Global.System.Data.DataColumn("EMAIL", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnEMAIL)
+            Me.columnID = New Global.System.Data.DataColumn("ID", GetType(Integer), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnID)
+            Me.columnIDENTIFICATION.AllowDBNull = false
+            Me.columnIDENTIFICATION.MaxLength = 50
+            Me.columnNOMBRE.MaxLength = 50
+            Me.columnAPELLIDO.MaxLength = 50
+            Me.columnESTADO.MaxLength = 50
             Me.columnID.AutoIncrement = true
             Me.columnID.AutoIncrementSeed = -1
             Me.columnID.AutoIncrementStep = -1
             Me.columnID.AllowDBNull = false
             Me.columnID.ReadOnly = true
-            Me.columnIDENTIFICATION.MaxLength = 50
-            Me.columnNOMBRE.MaxLength = 50
-            Me.columnAPELLIDO.MaxLength = 50
-            Me.columnESTADO.MaxLength = 50
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -644,24 +658,9 @@ Partial Public Class Progra3DataSet
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Property ID() As Integer
-            Get
-                Return CType(Me(Me.tableSOLICITUDES.IDColumn),Integer)
-            End Get
-            Set
-                Me(Me.tableSOLICITUDES.IDColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
         Public Property IDENTIFICATION() As String
             Get
-                Try 
-                    Return CType(Me(Me.tableSOLICITUDES.IDENTIFICATIONColumn),String)
-                Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("The value for column 'IDENTIFICATION' in table 'SOLICITUDES' is DBNull.", e)
-                End Try
+                Return CType(Me(Me.tableSOLICITUDES.IDENTIFICATIONColumn),String)
             End Get
             Set
                 Me(Me.tableSOLICITUDES.IDENTIFICATIONColumn) = value
@@ -760,15 +759,29 @@ Partial Public Class Progra3DataSet
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Function IsIDENTIFICATIONNull() As Boolean
-            Return Me.IsNull(Me.tableSOLICITUDES.IDENTIFICATIONColumn)
-        End Function
+        Public Property EMAIL() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tableSOLICITUDES.EMAILColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'EMAIL' in table 'SOLICITUDES' is DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableSOLICITUDES.EMAILColumn) = value
+            End Set
+        End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Sub SetIDENTIFICATIONNull()
-            Me(Me.tableSOLICITUDES.IDENTIFICATIONColumn) = Global.System.Convert.DBNull
-        End Sub
+        Public Property ID() As Integer
+            Get
+                Return CType(Me(Me.tableSOLICITUDES.IDColumn),Integer)
+            End Get
+            Set
+                Me(Me.tableSOLICITUDES.IDColumn) = value
+            End Set
+        End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
@@ -840,6 +853,18 @@ Partial Public Class Progra3DataSet
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
         Public Sub SetESTADONull()
             Me(Me.tableSOLICITUDES.ESTADOColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Function IsEMAILNull() As Boolean
+            Return Me.IsNull(Me.tableSOLICITUDES.EMAILColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Sub SetEMAILNull()
+            Me(Me.tableSOLICITUDES.EMAILColumn) = Global.System.Convert.DBNull
         End Sub
     End Class
     
@@ -1009,7 +1034,6 @@ Namespace Progra3DataSetTableAdapters
             Dim tableMapping As Global.System.Data.Common.DataTableMapping = New Global.System.Data.Common.DataTableMapping()
             tableMapping.SourceTable = "Table"
             tableMapping.DataSetTable = "SOLICITUDES"
-            tableMapping.ColumnMappings.Add("ID", "ID")
             tableMapping.ColumnMappings.Add("IDENTIFICATION", "IDENTIFICATION")
             tableMapping.ColumnMappings.Add("NOMBRE", "NOMBRE")
             tableMapping.ColumnMappings.Add("APELLIDO", "APELLIDO")
@@ -1017,12 +1041,14 @@ Namespace Progra3DataSetTableAdapters
             tableMapping.ColumnMappings.Add("FECHA_FIN", "FECHA_FIN")
             tableMapping.ColumnMappings.Add("FECHA_INICIO", "FECHA_INICIO")
             tableMapping.ColumnMappings.Add("ESTADO", "ESTADO")
+            tableMapping.ColumnMappings.Add("EMAIL", "EMAIL")
+            tableMapping.ColumnMappings.Add("ID", "ID")
             Me._adapter.TableMappings.Add(tableMapping)
             Me._adapter.InsertCommand = New Global.Microsoft.Data.SqlClient.SqlCommand()
             Me._adapter.InsertCommand.Connection = Me.Connection
             Me._adapter.InsertCommand.CommandText = "INSERT INTO [dbo].[SOLICITUDES] ([IDENTIFICATION], [NOMBRE], [APELLIDO], [HORAS],"& _ 
-                " [FECHA_FIN], [FECHA_INICIO], [ESTADO]) VALUES (@IDENTIFICATION, @NOMBRE, @APELL"& _ 
-                "IDO, @HORAS, @FECHA_FIN, @FECHA_INICIO, @ESTADO)"
+                " [FECHA_FIN], [FECHA_INICIO], [ESTADO], [EMAIL]) VALUES (@IDENTIFICATION, @NOMBR"& _ 
+                "E, @APELLIDO, @HORAS, @FECHA_FIN, @FECHA_INICIO, @ESTADO, @EMAIL)"
             Me._adapter.InsertCommand.CommandType = Global.System.Data.CommandType.Text
             Dim param As Global.Microsoft.Data.SqlClient.SqlParameter = New Global.Microsoft.Data.SqlClient.SqlParameter()
             param.ParameterName = "@IDENTIFICATION"
@@ -1073,6 +1099,13 @@ Namespace Progra3DataSetTableAdapters
             param.IsNullable = true
             param.SourceColumn = "ESTADO"
             Me._adapter.InsertCommand.Parameters.Add(param)
+            param = New Global.Microsoft.Data.SqlClient.SqlParameter()
+            param.ParameterName = "@EMAIL"
+            param.DbType = Global.System.Data.DbType.AnsiString
+            param.SqlDbType = Global.System.Data.SqlDbType.VarChar
+            param.IsNullable = true
+            param.SourceColumn = "EMAIL"
+            Me._adapter.InsertCommand.Parameters.Add(param)
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -1088,8 +1121,8 @@ Namespace Progra3DataSetTableAdapters
             Me._commandCollection = New Global.Microsoft.Data.SqlClient.SqlCommand(0) {}
             Me._commandCollection(0) = New Global.Microsoft.Data.SqlClient.SqlCommand()
             Me._commandCollection(0).Connection = Me.Connection
-            Me._commandCollection(0).CommandText = "SELECT ID, IDENTIFICATION, NOMBRE, APELLIDO, HORAS, FECHA_FIN, FECHA_INICIO, ESTA"& _ 
-                "DO FROM dbo.SOLICITUDES"
+            Me._commandCollection(0).CommandText = "SELECT ID,IDENTIFICATION, NOMBRE, APELLIDO, HORAS, FECHA_FIN, FECHA_INICIO, ESTAD"& _ 
+                "O,EMAIL FROM dbo.SOLICITUDES"
             Me._commandCollection(0).CommandType = Global.System.Data.CommandType.Text
         End Sub
         
@@ -1149,9 +1182,9 @@ Namespace Progra3DataSetTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Insert, true)>  _
-        Public Overloads Overridable Function Insert(ByVal IDENTIFICATION As String, ByVal NOMBRE As String, ByVal APELLIDO As String, ByVal HORAS As Global.System.Nullable(Of Integer), ByVal FECHA_FIN As Global.System.Nullable(Of Date), ByVal FECHA_INICIO As Global.System.Nullable(Of Date), ByVal ESTADO As String) As Integer
+        Public Overloads Overridable Function Insert(ByVal IDENTIFICATION As String, ByVal NOMBRE As String, ByVal APELLIDO As String, ByVal HORAS As Global.System.Nullable(Of Integer), ByVal FECHA_FIN As Global.System.Nullable(Of Date), ByVal FECHA_INICIO As Global.System.Nullable(Of Date), ByVal ESTADO As String, ByVal EMAIL As String) As Integer
             If (IDENTIFICATION Is Nothing) Then
-                Me.Adapter.InsertCommand.Parameters(0).Value = Global.System.DBNull.Value
+                Throw New Global.System.ArgumentNullException("IDENTIFICATION")
             Else
                 Me.Adapter.InsertCommand.Parameters(0).Value = CType(IDENTIFICATION,String)
             End If
@@ -1184,6 +1217,11 @@ Namespace Progra3DataSetTableAdapters
                 Me.Adapter.InsertCommand.Parameters(6).Value = Global.System.DBNull.Value
             Else
                 Me.Adapter.InsertCommand.Parameters(6).Value = CType(ESTADO,String)
+            End If
+            If (EMAIL Is Nothing) Then
+                Me.Adapter.InsertCommand.Parameters(7).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.InsertCommand.Parameters(7).Value = CType(EMAIL,String)
             End If
             Dim previousConnectionState As Global.System.Data.ConnectionState = Me.Adapter.InsertCommand.Connection.State
             If ((Me.Adapter.InsertCommand.Connection.State And Global.System.Data.ConnectionState.Open)  _

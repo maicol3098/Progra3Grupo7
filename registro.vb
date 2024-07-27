@@ -6,7 +6,8 @@
 
 
     Private Sub Btnguardar_Click(sender As Object, e As EventArgs) Handles Btnguardar.Click
-        Dim strsql, vusuario, vclave, VID As String
+        'codigo para guardar el usuario
+        Dim strsql, vusuario, vclave, VID, vNombre, vApellido As String
         Dim j As Integer
 
         strsql = ""
@@ -16,7 +17,7 @@
         VID = ""
 
         Try
-            If txtusuario.Text = "" Or txtclave.Text = "" Or mskid.Text = "" Then
+            If txtusuario.Text = "" Or txtclave.Text = "" Or mskid.Text = "" Or tbApellido.Text = "" Or tbNombre.Text = "" Then
                 MsgBox("Datos incompletos, favor completar")
                 Return
 
@@ -33,6 +34,7 @@
                     VID = VID.Replace("-", "")
 
 
+                    'revisar si el usuario existe en la base de datos
 
                     Conexion.consultar("SELECT * FROM USERS WHERE USUARIO= '" + vusuario + "'", "USERS")
 
@@ -79,9 +81,11 @@
 
 
                     vclave = contraseñaEncriptada
+                    vNombre = tbNombre.Text
+                    vApellido = tbApellido.Text
 
-                    strsql = "INSERT INTO USERS (USUARIO,CLAVE,IDENTIFICACION,isAdmin)"
-                    strsql += vbCrLf + "VALUES ('" & vusuario & "','" & vclave & "','" & VID & "','" & 0 & "')"
+                    strsql = "INSERT INTO USERS (USUARIO,CLAVE,IDENTIFICACION,isAdmin,NOMBRE,APELLIDO)"
+                    strsql += vbCrLf + "VALUES ('" & vusuario & "','" & vclave & "','" & VID & "','" & 0 & "','" & vNombre & "','" & vApellido & "')"
 
                     Conexion.inserta_datos(strsql)
 
@@ -108,6 +112,8 @@
     End Sub
 
     Private Sub Btnlogin_Click(sender As Object, e As EventArgs) Handles Btnlogin.Click
+
+        'redireccion al la forma de login
         Dim login As New login()
         login.Show()
 
@@ -117,10 +123,12 @@
     End Sub
 
     Private Sub btnsalir_Click(sender As Object, e As EventArgs) Handles btnsalir.Click
+        'boton de salir
         Application.Exit()
     End Sub
 
     Private Sub registro_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        'ocultar los valores de contrasena
         txtclave.UseSystemPasswordChar = True
     End Sub
 End Class
