@@ -1,9 +1,11 @@
 ﻿Imports System.Data.SqlClient
+Imports System.IO
 
 Public Class Solicitudes
 
     Private emailSender As EmailSender
     Private mainForm As Form1
+    Private conexion As New Conexion() ' Use the Conexion class
 
     Public Sub New()
         InitializeComponent()
@@ -15,14 +17,20 @@ Public Class Solicitudes
         Me.mainForm = mainForm
     End Sub
 
-    Private connectionString As String = "Data Source=MICHAELSEGU76AC\SQLEXPRESS;Initial Catalog=Progra3;Integrated Security=True"
-    Private conexion As New Conexion()
-
     Private Sub Solicitudes_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         emailSender = New EmailSender()
 
         ' Cargar datos al cargar el formulario
         Me.SOLICITUDESTableAdapter.Fill(Me.Progra3DataSet.SOLICITUDES)
+
+        ' Verificar si la columna IDENTIFICATION existe y agregarla si es necesario
+        If Not DataGridView1.Columns.Contains("IDENTIFICATION") Then
+            Dim identificationColumn As New DataGridViewTextBoxColumn()
+            identificationColumn.Name = "IDENTIFICATION"
+            identificationColumn.HeaderText = "IDENTIFICATION"
+            identificationColumn.DataPropertyName = "IDENTIFICATION"
+            DataGridView1.Columns.Add(identificationColumn)
+        End If
 
         ' Hacer que Estado sea un combo box
         Dim comboBoxColumn As New DataGridViewComboBoxColumn()
@@ -66,7 +74,7 @@ Public Class Solicitudes
 
         ' Poner las demás columnas en modo de solo lectura
         For Each column As DataGridViewColumn In DataGridView1.Columns
-            If column.Name <> "ESTADO" AndAlso column.Name <> "FECHA_INICIO" AndAlso column.Name <> "FECHA_FIN" AndAlso column.Name <> "EMAIL" Then
+            If column.Name <> "ESTADO" AndAlso column.Name <> "FECHA_INICIO" AndAlso column.Name <> "FECHA_FIN" AndAlso column.Name <> "EMAIL" AndAlso column.Name <> "IDENTIFICATION" Then
                 column.ReadOnly = True
             End If
         Next
@@ -90,7 +98,46 @@ Public Class Solicitudes
             Dim result As DialogResult = MessageBox.Show("¿Quiere realizar los cambios?", "Confirmar", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
 
             If result = DialogResult.Yes Then
-                ' Actualizar la tabla
+                ' Verificar si el estado es "Aprobado"
+                Dim estado As String = DataGridView1.Rows(e.RowIndex).Cells("ESTADO").Value.ToString()
+
+                If estado = "Aprobado" Then
+                    ' Obtener IDENTIFICATION y DIAS_SOLICITADOS
+                    Dim identificacion As String = DataGridView1.Rows(e.RowIndex).Cells("IDENTIFICATION").Value.ToString()
+                    Dim diasSolicitados As Integer = Convert.ToInt32(DataGridView1.Rows(e.RowIndex).Cells("DIAS_SOLICITADOS").Value)
+
+
+
+                    ' Consultar la tabla USERS para verificar VACACIONES_DISPONIBLES
+                    Dim sqlQuery As String = $"SELECT VACACIONES_DISPONIBLES FROM USERS WHERE IDENTIFICACION = '{identificacion}'"
+                    conexion.consultar(sqlQuery, "USERS")
+
+                    ' Verificar si hay resultados
+                    If conexion.ds.Tables("USERS").Rows.Count > 0 Then
+                        Dim vacacionesDisponibles As Integer = Convert.ToInt32(conexion.ds.Tables("USERS").Rows(0)("VACACIONES_DISPONIBLES"))
+
+                        ' Comparar DIAS_SOLICITADOS con VACACIONES_DISPONIBLES
+                        If diasSolicitados > vacacionesDisponibles Then
+                            MessageBox.Show("No tiene suficientes dias de vacaciones disponibles")
+                            ' Cancel the changes
+                            RemoveHandler DataGridView1.CellValueChanged, AddressOf DataGridView1_CellValueChanged
+                            DataGridView1.CancelEdit()
+                            Me.SOLICITUDESTableAdapter.Fill(Me.Progra3DataSet.SOLICITUDES) ' Reload the data to revert changes
+                            AddHandler DataGridView1.CellValueChanged, AddressOf DataGridView1_CellValueChanged
+                            Return ' Exit the method to prevent further processing
+                        Else
+                            ' Actualizar la tabla USERS restando DIAS_SOLICITADOS de VACACIONES_DISPONIBLES
+                            Dim updateQuery As String = $"UPDATE USERS SET VACACIONES_DISPONIBLES = VACACIONES_DISPONIBLES - {diasSolicitados} WHERE IDENTIFICACION = '{identificacion}'"
+                            conexion.inserta_datos(updateQuery)
+
+                            MessageBox.Show("Si tiene suficientes dias, se han reducido los dias.")
+                        End If
+                    Else
+                        MessageBox.Show("No se encontró el usuario en la tabla USERS.")
+                    End If
+                End If
+
+                ' Si el estado es aprobado o no, sigue con el proceso de actualización de la base de datos
                 Try
                     DataGridView1.EndEdit()
 
@@ -102,7 +149,6 @@ Public Class Solicitudes
 
                     ' Obtener el email y estado de la fila actual
                     Dim email As String = DataGridView1.Rows(e.RowIndex).Cells("EMAIL").Value.ToString()
-                    Dim estado As String = DataGridView1.Rows(e.RowIndex).Cells("ESTADO").Value.ToString()
                     Dim fechaInicio As DateTime = Convert.ToDateTime(DataGridView1.Rows(e.RowIndex).Cells("FECHA_INICIO").Value)
                     Dim fechaFin As DateTime = Convert.ToDateTime(DataGridView1.Rows(e.RowIndex).Cells("FECHA_FIN").Value)
 
@@ -169,5 +215,36 @@ Public Class Solicitudes
 
     Private Sub lblsolicitudes_Click(sender As Object, e As EventArgs) Handles lblsolicitudes.Click
 
+    End Sub
+
+    Private Sub btnExportCSV_Click(sender As Object, e As EventArgs) Handles btnExportCSV.Click
+        Try
+            ' Configuracion del dialogo
+            Using sfd As New SaveFileDialog()
+                sfd.Filter = "CSV Files (*.csv)|*.csv"
+                sfd.FileName = "Solicitudes.csv"
+                sfd.Title = "Guardar como CSV"
+                If sfd.ShowDialog() = DialogResult.OK Then
+                    ' Crear el csv
+                    Using writer As New StreamWriter(sfd.FileName)
+                        ' creaar el header del csv
+                        Dim header As String = String.Join(",", DataGridView1.Columns.Cast(Of DataGridViewColumn).Select(Function(col) col.HeaderText))
+                        writer.WriteLine(header)
+
+                        ' agregar la data al csv
+                        For Each row As DataGridViewRow In DataGridView1.Rows
+                            If Not row.IsNewRow Then
+                                Dim line As String = String.Join(",", row.Cells.Cast(Of DataGridViewCell).Select(Function(cell) If(cell.Value IsNot Nothing, cell.Value.ToString(), String.Empty)))
+                                writer.WriteLine(line)
+                            End If
+                        Next
+                    End Using
+
+                    MessageBox.Show("Se ha exportado la informacion a CSV", "Export Completo", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                End If
+            End Using
+        Catch ex As Exception
+            MessageBox.Show("A ocurrido un error: " & ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+        End Try
     End Sub
 End Class

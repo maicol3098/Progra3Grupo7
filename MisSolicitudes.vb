@@ -4,37 +4,34 @@ Public Class MisSolicitudes
     Private emailSender As EmailSender
     Private mainForm As Form1
     Private vusuario As String
+    Private VacacionesDisponibles As Integer
 
     Public Sub New()
         InitializeComponent()
     End Sub
 
     Public Sub New(vusuario As String)
-
-        'inicializar forma para que puede obtener el valor de usuario
-
         InitializeComponent()
         Me.vusuario = vusuario
     End Sub
 
-    Public Sub New(vusuario As String, mainForm As Form1)
-
-        'inicializar forma para que puede obtener el valor de usuario y isadmin
+    Public Sub New(vusuario As String, mainForm As Form1, VacacionesDisponibles As Integer)
         InitializeComponent()
         Me.vusuario = vusuario
         Me.mainForm = mainForm
+        Me.VacacionesDisponibles = VacacionesDisponibles
     End Sub
 
-    'crear connecion a base de datos
+    ' Crear conexión a base de datos
     Private connectionString As String = "Data Source=MICHAELSEGU76AC\SQLEXPRESS;Initial Catalog=Progra3;Integrated Security=True"
     Private conexion As New Conexion()
 
-
-
     Private Sub Solicitudes_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-
         emailSender = New EmailSender()
         Dim currentUserId As Integer = GetCurrentUserId()
+
+        ' Mostrar VacacionesDisponibles en un label 
+        LbDiasDisponibles.Text = VacacionesDisponibles.ToString()
 
         ' Cargar datos al cargar el formulario
         Me.SOLICITUDESTableAdapter.Fill(Me.Progra3DataSet.SOLICITUDES)
@@ -160,8 +157,6 @@ Public Class MisSolicitudes
     End Sub
 
     Private Sub UpdateDatabase()
-
-
         Dim updateCommand As New SqlCommand("UPDATE SOLICITUDES SET ESTADO = @ESTADO WHERE ID = @ID", conexion.conexion)
         updateCommand.Parameters.Add("@ESTADO", SqlDbType.VarChar, 50, "ESTADO")
         updateCommand.Parameters.Add("@ID", SqlDbType.Int, 4, "ID").SourceVersion = DataRowVersion.Original
@@ -191,7 +186,7 @@ Public Class MisSolicitudes
     End Sub
 
     Private Sub btnvolver_Click(sender As Object, e As EventArgs) Handles btnvolver.Click
-        ' volver a form1
+        ' Volver a form1
         If Me.mainForm IsNot Nothing Then
             Me.mainForm.Show()
         End If
@@ -199,8 +194,21 @@ Public Class MisSolicitudes
     End Sub
 
     Private Sub MisSolicitudes_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        ' Mostrar VacacionesDisponibles en label
+        LbDiasDisponibles.Text = VacacionesDisponibles.ToString()
     End Sub
 
     Private Sub DataGridView1_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles DataGridView1.CellContentClick
+
+    End Sub
+
+    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
+        ' Salir de la pantalla solicitudes y volver a form1
+        Me.mainForm.Show()
+        Me.Close()
+    End Sub
+
+    Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
+        Application.Exit()
     End Sub
 End Class

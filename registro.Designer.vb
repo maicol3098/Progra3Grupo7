@@ -42,7 +42,7 @@ Partial Class registro
         '
         Me.lblusuario.AutoSize = True
         Me.lblusuario.Font = New System.Drawing.Font("Yu Gothic", 12.0!)
-        Me.lblusuario.Location = New System.Drawing.Point(374, 239)
+        Me.lblusuario.Location = New System.Drawing.Point(281, 305)
         Me.lblusuario.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.lblusuario.Name = "lblusuario"
         Me.lblusuario.Size = New System.Drawing.Size(118, 42)
@@ -53,7 +53,7 @@ Partial Class registro
         '
         Me.lblclave.AutoSize = True
         Me.lblclave.Font = New System.Drawing.Font("Yu Gothic", 12.0!)
-        Me.lblclave.Location = New System.Drawing.Point(348, 328)
+        Me.lblclave.Location = New System.Drawing.Point(255, 394)
         Me.lblclave.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.lblclave.Name = "lblclave"
         Me.lblclave.Size = New System.Drawing.Size(189, 42)
@@ -64,7 +64,7 @@ Partial Class registro
         '
         Me.lblid.AutoSize = True
         Me.lblid.Font = New System.Drawing.Font("Yu Gothic", 12.0!)
-        Me.lblid.Location = New System.Drawing.Point(332, 427)
+        Me.lblid.Location = New System.Drawing.Point(239, 493)
         Me.lblid.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.lblid.Name = "lblid"
         Me.lblid.Size = New System.Drawing.Size(218, 42)
@@ -73,7 +73,7 @@ Partial Class registro
         '
         'txtusuario
         '
-        Me.txtusuario.Location = New System.Drawing.Point(277, 287)
+        Me.txtusuario.Location = New System.Drawing.Point(184, 353)
         Me.txtusuario.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.txtusuario.Name = "txtusuario"
         Me.txtusuario.Size = New System.Drawing.Size(316, 31)
@@ -81,7 +81,7 @@ Partial Class registro
         '
         'txtclave
         '
-        Me.txtclave.Location = New System.Drawing.Point(277, 375)
+        Me.txtclave.Location = New System.Drawing.Point(184, 441)
         Me.txtclave.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.txtclave.Name = "txtclave"
         Me.txtclave.Size = New System.Drawing.Size(316, 31)
@@ -92,7 +92,7 @@ Partial Class registro
         Me.Btnguardar.BackColor = System.Drawing.SystemColors.ActiveCaptionText
         Me.Btnguardar.Font = New System.Drawing.Font("Yu Gothic UI", 12.0!)
         Me.Btnguardar.ForeColor = System.Drawing.SystemColors.Control
-        Me.Btnguardar.Location = New System.Drawing.Point(316, 551)
+        Me.Btnguardar.Location = New System.Drawing.Point(223, 617)
         Me.Btnguardar.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.Btnguardar.Name = "Btnguardar"
         Me.Btnguardar.Size = New System.Drawing.Size(260, 51)
@@ -105,7 +105,7 @@ Partial Class registro
         Me.Btnlogin.BackColor = System.Drawing.SystemColors.ActiveCaptionText
         Me.Btnlogin.Font = New System.Drawing.Font("Yu Gothic UI", 12.0!)
         Me.Btnlogin.ForeColor = System.Drawing.SystemColors.ButtonFace
-        Me.Btnlogin.Location = New System.Drawing.Point(345, 730)
+        Me.Btnlogin.Location = New System.Drawing.Point(252, 796)
         Me.Btnlogin.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.Btnlogin.Name = "Btnlogin"
         Me.Btnlogin.Size = New System.Drawing.Size(198, 71)
@@ -118,7 +118,7 @@ Partial Class registro
         Me.btnsalir.BackColor = System.Drawing.SystemColors.ActiveCaptionText
         Me.btnsalir.Font = New System.Drawing.Font("Yu Gothic UI", 12.0!)
         Me.btnsalir.ForeColor = System.Drawing.SystemColors.ButtonFace
-        Me.btnsalir.Location = New System.Drawing.Point(1497, 764)
+        Me.btnsalir.Location = New System.Drawing.Point(1483, 833)
         Me.btnsalir.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.btnsalir.Name = "btnsalir"
         Me.btnsalir.Size = New System.Drawing.Size(225, 67)
@@ -130,7 +130,7 @@ Partial Class registro
         '
         Me.Label1.AutoSize = True
         Me.Label1.Font = New System.Drawing.Font("Yu Gothic", 11.0!)
-        Me.Label1.Location = New System.Drawing.Point(279, 686)
+        Me.Label1.Location = New System.Drawing.Point(186, 752)
         Me.Label1.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(309, 39)
@@ -139,7 +139,7 @@ Partial Class registro
         '
         'mskid
         '
-        Me.mskid.Location = New System.Drawing.Point(277, 492)
+        Me.mskid.Location = New System.Drawing.Point(184, 558)
         Me.mskid.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.mskid.Mask = "0-0000-0000"
         Me.mskid.Name = "mskid"
@@ -148,7 +148,7 @@ Partial Class registro
         '
         'tbNombre
         '
-        Me.tbNombre.Location = New System.Drawing.Point(277, 101)
+        Me.tbNombre.Location = New System.Drawing.Point(184, 167)
         Me.tbNombre.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.tbNombre.Name = "tbNombre"
         Me.tbNombre.Size = New System.Drawing.Size(316, 31)
@@ -158,7 +158,7 @@ Partial Class registro
         '
         Me.Label5.AutoSize = True
         Me.Label5.Font = New System.Drawing.Font("Yu Gothic", 12.0!)
-        Me.Label5.Location = New System.Drawing.Point(374, 54)
+        Me.Label5.Location = New System.Drawing.Point(281, 120)
         Me.Label5.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label5.Name = "Label5"
         Me.Label5.Size = New System.Drawing.Size(137, 42)
@@ -167,7 +167,7 @@ Partial Class registro
         '
         'tbApellido
         '
-        Me.tbApellido.Location = New System.Drawing.Point(277, 194)
+        Me.tbApellido.Location = New System.Drawing.Point(184, 260)
         Me.tbApellido.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.tbApellido.Name = "tbApellido"
         Me.tbApellido.Size = New System.Drawing.Size(316, 31)
@@ -177,7 +177,7 @@ Partial Class registro
         '
         Me.Label4.AutoSize = True
         Me.Label4.Font = New System.Drawing.Font("Yu Gothic", 12.0!)
-        Me.Label4.Location = New System.Drawing.Point(374, 147)
+        Me.Label4.Location = New System.Drawing.Point(281, 213)
         Me.Label4.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(137, 42)
@@ -191,7 +191,7 @@ Partial Class registro
         Me.BackColor = System.Drawing.SystemColors.ButtonHighlight
         Me.BackgroundImage = Global.PARCIAL1.My.Resources.Resources.WhatsApp_Image_2024_07_11_at_7_55_27_PM
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
-        Me.ClientSize = New System.Drawing.Size(1928, 910)
+        Me.ClientSize = New System.Drawing.Size(1895, 1038)
         Me.Controls.Add(Me.tbNombre)
         Me.Controls.Add(Me.Label5)
         Me.Controls.Add(Me.tbApellido)

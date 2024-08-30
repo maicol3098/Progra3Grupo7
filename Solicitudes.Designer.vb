@@ -1,9 +1,9 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
 Partial Class Solicitudes
     Inherits System.Windows.Forms.Form
 
     'Form overrides dispose to clean up the component list.
-    <System.Diagnostics.DebuggerNonUserCode()> _
+    <System.Diagnostics.DebuggerNonUserCode()>
     Protected Overrides Sub Dispose(ByVal disposing As Boolean)
         Try
             If disposing AndAlso components IsNot Nothing Then
@@ -20,10 +20,10 @@ Partial Class Solicitudes
     'NOTE: The following procedure is required by the Windows Form Designer
     'It can be modified using the Windows Form Designer.  
     'Do not modify it using the code editor.
-    <System.Diagnostics.DebuggerStepThrough()> _
+    <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
-        Dim DataGridViewCellStyle4 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.DataGridView1 = New System.Windows.Forms.DataGridView()
         Me.IDDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.IDENTIFICATIONDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -32,12 +32,22 @@ Partial Class Solicitudes
         Me.FECHAFINDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.FECHAINICIODataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.ESTADODataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DIAS_SOLICITADOS = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.SOLICITUDESBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.Progra3DataSet = New PARCIAL1.Progra3DataSet()
         Me.lblsolicitudes = New System.Windows.Forms.Label()
         Me.SOLICITUDESTableAdapter = New PARCIAL1.Progra3DataSetTableAdapters.SOLICITUDESTableAdapter()
         Me.btnsalir = New System.Windows.Forms.Button()
         Me.btnvolver = New System.Windows.Forms.Button()
+        Me.DataGridViewTextBoxColumn1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn3 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn4 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn5 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn6 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn7 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn8 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.btnExportCSV = New System.Windows.Forms.Button()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.SOLICITUDESBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.Progra3DataSet, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -46,8 +56,8 @@ Partial Class Solicitudes
         'DataGridView1
         '
         Me.DataGridView1.AllowUserToAddRows = False
-        DataGridViewCellStyle4.BackColor = System.Drawing.Color.WhiteSmoke
-        Me.DataGridView1.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle4
+        DataGridViewCellStyle1.BackColor = System.Drawing.Color.WhiteSmoke
+        Me.DataGridView1.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle1
         Me.DataGridView1.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
@@ -57,7 +67,7 @@ Partial Class Solicitudes
         Me.DataGridView1.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight
         Me.DataGridView1.BorderStyle = System.Windows.Forms.BorderStyle.None
         Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DataGridView1.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.IDDataGridViewTextBoxColumn, Me.IDENTIFICATIONDataGridViewTextBoxColumn, Me.NOMBREDataGridViewTextBoxColumn, Me.APELLIDODataGridViewTextBoxColumn, Me.FECHAFINDataGridViewTextBoxColumn, Me.FECHAINICIODataGridViewTextBoxColumn, Me.ESTADODataGridViewTextBoxColumn})
+        Me.DataGridView1.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.IDDataGridViewTextBoxColumn, Me.IDENTIFICATIONDataGridViewTextBoxColumn, Me.NOMBREDataGridViewTextBoxColumn, Me.APELLIDODataGridViewTextBoxColumn, Me.FECHAFINDataGridViewTextBoxColumn, Me.FECHAINICIODataGridViewTextBoxColumn, Me.ESTADODataGridViewTextBoxColumn, Me.DIAS_SOLICITADOS})
         Me.DataGridView1.DataSource = Me.SOLICITUDESBindingSource
         Me.DataGridView1.GridColor = System.Drawing.SystemColors.ButtonFace
         Me.DataGridView1.Location = New System.Drawing.Point(50, 137)
@@ -66,7 +76,7 @@ Partial Class Solicitudes
         Me.DataGridView1.RowHeadersVisible = False
         Me.DataGridView1.RowHeadersWidth = 82
         Me.DataGridView1.RowTemplate.Height = 33
-        Me.DataGridView1.Size = New System.Drawing.Size(2208, 679)
+        Me.DataGridView1.Size = New System.Drawing.Size(1800, 738)
         Me.DataGridView1.TabIndex = 0
         '
         'IDDataGridViewTextBoxColumn
@@ -124,6 +134,13 @@ Partial Class Solicitudes
         Me.ESTADODataGridViewTextBoxColumn.MinimumWidth = 10
         Me.ESTADODataGridViewTextBoxColumn.Name = "ESTADODataGridViewTextBoxColumn"
         '
+        'DIAS_SOLICITADOS
+        '
+        Me.DIAS_SOLICITADOS.DataPropertyName = "DIAS_SOLICITADOS"
+        Me.DIAS_SOLICITADOS.HeaderText = "DIAS_SOLICITADOS"
+        Me.DIAS_SOLICITADOS.MinimumWidth = 10
+        Me.DIAS_SOLICITADOS.Name = "DIAS_SOLICITADOS"
+        '
         'SOLICITUDESBindingSource
         '
         Me.SOLICITUDESBindingSource.DataMember = "SOLICITUDES"
@@ -138,12 +155,13 @@ Partial Class Solicitudes
         '
         Me.lblsolicitudes.AutoSize = True
         Me.lblsolicitudes.BackColor = System.Drawing.SystemColors.ActiveCaptionText
-        Me.lblsolicitudes.Font = New System.Drawing.Font("Yu Gothic UI", 16.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblsolicitudes.Font = New System.Drawing.Font("Yu Gothic UI", 12.0!)
         Me.lblsolicitudes.ForeColor = System.Drawing.SystemColors.ButtonHighlight
-        Me.lblsolicitudes.Location = New System.Drawing.Point(748, 38)
+        Me.lblsolicitudes.Location = New System.Drawing.Point(0, 61)
         Me.lblsolicitudes.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.lblsolicitudes.Name = "lblsolicitudes"
-        Me.lblsolicitudes.Size = New System.Drawing.Size(236, 59)
+        Me.lblsolicitudes.Padding = New System.Windows.Forms.Padding(850, 0, 850, 0)
+        Me.lblsolicitudes.Size = New System.Drawing.Size(1874, 45)
         Me.lblsolicitudes.TabIndex = 1
         Me.lblsolicitudes.Text = "Solicitudes"
         '
@@ -156,7 +174,7 @@ Partial Class Solicitudes
         Me.btnsalir.BackColor = System.Drawing.SystemColors.ActiveCaptionText
         Me.btnsalir.Font = New System.Drawing.Font("Yu Gothic UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnsalir.ForeColor = System.Drawing.SystemColors.ButtonHighlight
-        Me.btnsalir.Location = New System.Drawing.Point(1497, 764)
+        Me.btnsalir.Location = New System.Drawing.Point(1513, 883)
         Me.btnsalir.Margin = New System.Windows.Forms.Padding(4, 6, 4, 6)
         Me.btnsalir.Name = "btnsalir"
         Me.btnsalir.Size = New System.Drawing.Size(181, 51)
@@ -169,7 +187,7 @@ Partial Class Solicitudes
         Me.btnvolver.BackColor = System.Drawing.SystemColors.ActiveCaptionText
         Me.btnvolver.Font = New System.Drawing.Font("Yu Gothic UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnvolver.ForeColor = System.Drawing.SystemColors.ButtonHighlight
-        Me.btnvolver.Location = New System.Drawing.Point(1332, 764)
+        Me.btnvolver.Location = New System.Drawing.Point(1348, 883)
         Me.btnvolver.Margin = New System.Windows.Forms.Padding(4, 6, 4, 6)
         Me.btnvolver.Name = "btnvolver"
         Me.btnvolver.Size = New System.Drawing.Size(136, 50)
@@ -177,13 +195,97 @@ Partial Class Solicitudes
         Me.btnvolver.Text = "Volver"
         Me.btnvolver.UseVisualStyleBackColor = False
         '
+        'DataGridViewTextBoxColumn1
+        '
+        Me.DataGridViewTextBoxColumn1.DataPropertyName = "ID"
+        Me.DataGridViewTextBoxColumn1.HeaderText = "ID"
+        Me.DataGridViewTextBoxColumn1.MinimumWidth = 10
+        Me.DataGridViewTextBoxColumn1.Name = "DataGridViewTextBoxColumn1"
+        Me.DataGridViewTextBoxColumn1.ReadOnly = True
+        Me.DataGridViewTextBoxColumn1.Width = 224
+        '
+        'DataGridViewTextBoxColumn2
+        '
+        Me.DataGridViewTextBoxColumn2.DataPropertyName = "IDENTIFICATION"
+        Me.DataGridViewTextBoxColumn2.HeaderText = "IDENTIFICATION"
+        Me.DataGridViewTextBoxColumn2.MinimumWidth = 10
+        Me.DataGridViewTextBoxColumn2.Name = "DataGridViewTextBoxColumn2"
+        Me.DataGridViewTextBoxColumn2.ReadOnly = True
+        Me.DataGridViewTextBoxColumn2.Width = 224
+        '
+        'DataGridViewTextBoxColumn3
+        '
+        Me.DataGridViewTextBoxColumn3.DataPropertyName = "NOMBRE"
+        Me.DataGridViewTextBoxColumn3.HeaderText = "NOMBRE"
+        Me.DataGridViewTextBoxColumn3.MinimumWidth = 10
+        Me.DataGridViewTextBoxColumn3.Name = "DataGridViewTextBoxColumn3"
+        Me.DataGridViewTextBoxColumn3.ReadOnly = True
+        Me.DataGridViewTextBoxColumn3.Width = 223
+        '
+        'DataGridViewTextBoxColumn4
+        '
+        Me.DataGridViewTextBoxColumn4.DataPropertyName = "APELLIDO"
+        Me.DataGridViewTextBoxColumn4.HeaderText = "APELLIDO"
+        Me.DataGridViewTextBoxColumn4.MinimumWidth = 10
+        Me.DataGridViewTextBoxColumn4.Name = "DataGridViewTextBoxColumn4"
+        Me.DataGridViewTextBoxColumn4.ReadOnly = True
+        Me.DataGridViewTextBoxColumn4.Width = 224
+        '
+        'DataGridViewTextBoxColumn5
+        '
+        Me.DataGridViewTextBoxColumn5.DataPropertyName = "FECHA_FIN"
+        Me.DataGridViewTextBoxColumn5.HeaderText = "FECHA_FIN"
+        Me.DataGridViewTextBoxColumn5.MinimumWidth = 10
+        Me.DataGridViewTextBoxColumn5.Name = "DataGridViewTextBoxColumn5"
+        Me.DataGridViewTextBoxColumn5.ReadOnly = True
+        Me.DataGridViewTextBoxColumn5.Width = 224
+        '
+        'DataGridViewTextBoxColumn6
+        '
+        Me.DataGridViewTextBoxColumn6.DataPropertyName = "FECHA_INICIO"
+        Me.DataGridViewTextBoxColumn6.HeaderText = "FECHA_INICIO"
+        Me.DataGridViewTextBoxColumn6.MinimumWidth = 10
+        Me.DataGridViewTextBoxColumn6.Name = "DataGridViewTextBoxColumn6"
+        Me.DataGridViewTextBoxColumn6.ReadOnly = True
+        Me.DataGridViewTextBoxColumn6.Width = 224
+        '
+        'DataGridViewTextBoxColumn7
+        '
+        Me.DataGridViewTextBoxColumn7.DataPropertyName = "ESTADO"
+        Me.DataGridViewTextBoxColumn7.HeaderText = "ESTADO"
+        Me.DataGridViewTextBoxColumn7.MinimumWidth = 10
+        Me.DataGridViewTextBoxColumn7.Name = "DataGridViewTextBoxColumn7"
+        Me.DataGridViewTextBoxColumn7.Width = 223
+        '
+        'DataGridViewTextBoxColumn8
+        '
+        Me.DataGridViewTextBoxColumn8.DataPropertyName = "DIAS_SOLICITADOS"
+        Me.DataGridViewTextBoxColumn8.HeaderText = "DIAS_SOLICITADOS"
+        Me.DataGridViewTextBoxColumn8.MinimumWidth = 10
+        Me.DataGridViewTextBoxColumn8.Name = "DataGridViewTextBoxColumn8"
+        Me.DataGridViewTextBoxColumn8.Width = 224
+        '
+        'btnExportCSV
+        '
+        Me.btnExportCSV.BackColor = System.Drawing.SystemColors.ActiveCaptionText
+        Me.btnExportCSV.Font = New System.Drawing.Font("Yu Gothic UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnExportCSV.ForeColor = System.Drawing.SystemColors.ButtonHighlight
+        Me.btnExportCSV.Location = New System.Drawing.Point(1112, 882)
+        Me.btnExportCSV.Margin = New System.Windows.Forms.Padding(4, 6, 4, 6)
+        Me.btnExportCSV.Name = "btnExportCSV"
+        Me.btnExportCSV.Size = New System.Drawing.Size(228, 51)
+        Me.btnExportCSV.TabIndex = 30
+        Me.btnExportCSV.Text = "Export CSV"
+        Me.btnExportCSV.UseVisualStyleBackColor = False
+        '
         'Solicitudes
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(12.0!, 25.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.SystemColors.ButtonHighlight
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
-        Me.ClientSize = New System.Drawing.Size(1886, 862)
+        Me.ClientSize = New System.Drawing.Size(1895, 1038)
+        Me.Controls.Add(Me.btnExportCSV)
         Me.Controls.Add(Me.btnvolver)
         Me.Controls.Add(Me.btnsalir)
         Me.Controls.Add(Me.lblsolicitudes)
@@ -214,4 +316,14 @@ Partial Class Solicitudes
     Friend WithEvents FECHAFINDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
     Friend WithEvents FECHAINICIODataGridViewTextBoxColumn As DataGridViewTextBoxColumn
     Friend WithEvents ESTADODataGridViewTextBoxColumn As DataGridViewTextBoxColumn
+    Friend WithEvents DIAS_SOLICITADOS As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn1 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn2 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn3 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn4 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn5 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn6 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn7 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn8 As DataGridViewTextBoxColumn
+    Friend WithEvents btnExportCSV As Button
 End Class

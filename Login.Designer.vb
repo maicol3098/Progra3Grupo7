@@ -135,7 +135,7 @@ Partial Class login
         Me.BackColor = System.Drawing.SystemColors.ButtonHighlight
         Me.BackgroundImage = Global.PARCIAL1.My.Resources.Resources.WhatsApp_Image_2024_07_11_at_7_55_27_PM
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
-        Me.ClientSize = New System.Drawing.Size(1928, 910)
+        Me.ClientSize = New System.Drawing.Size(2200, 1111)
         Me.Controls.Add(Me.Label3)
         Me.Controls.Add(Me.Btnsalir)
         Me.Controls.Add(Me.btnregistrar)
@@ -146,6 +146,7 @@ Partial Class login
         Me.Controls.Add(Me.Label1)
         Me.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.Name = "login"
+        Me.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Show
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Login"
         Me.ResumeLayout(False)

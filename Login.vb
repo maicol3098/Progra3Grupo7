@@ -3,7 +3,7 @@
 
     Private Sub Btnguardar_Click(sender As Object, e As EventArgs) Handles btnlogin.Click
         Dim strsql, vusuario, vclave, VID, nombre As String
-        Dim j, isAdmin As Integer
+        Dim j, isAdmin, vacacionesDisponibles As Integer
         'iniciar variables
         strsql = ""
         vusuario = ""
@@ -12,6 +12,7 @@
         VID = ""
         isAdmin = 0
         nombre = ""
+        vacacionesDisponibles = 0
 
         Try
             If txtid.Text = "" Or txtclave.Text = "" Then
@@ -39,6 +40,14 @@
                     Dim nombreAlmacenado As String = Conexion.ds.Tables("USERS").Rows(0)("NOMBRE").ToString()
                     Dim contraseñaEncriptada As String = Conexion.encriptarcontrasena(vclave)
 
+                    ' Check if VACACIONES_DISPONIBLES is null
+                    If IsDBNull(Conexion.ds.Tables("USERS").Rows(0)("VACACIONES_DISPONIBLES")) Then
+                        MessageBox.Show("El administrador nesecita revisar la cuenta primero", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+                        Return
+                    Else
+                        vacacionesDisponibles = Convert.ToInt32(Conexion.ds.Tables("USERS").Rows(0)("VACACIONES_DISPONIBLES"))
+                    End If
+
                     ' codigo para revisar si hay nulos
                     If Not IsDBNull(Conexion.ds.Tables("USERS").Rows(0)("isAdmin")) Then
                         isAdmin = Convert.ToInt32(Conexion.ds.Tables("USERS").Rows(0)("isAdmin"))
@@ -49,7 +58,7 @@
                     If contraseñaAlmacenada = contraseñaEncriptada Then
                         MessageBox.Show("Login exitoso", "", MessageBoxButtons.OK, MessageBoxIcon.Warning)
 
-                        Dim form1 As New Form1(vusuario, isAdmin, nombreAlmacenado)
+                        Dim form1 As New Form1(vusuario, isAdmin, nombreAlmacenado, vacacionesDisponibles)
                         form1.Show()
                         Me.Visible = False
                         f = 0
@@ -65,6 +74,7 @@
             MessageBox.Show("Error:" + ex.ToString)
         End Try
     End Sub
+
 
     Private Sub login_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 

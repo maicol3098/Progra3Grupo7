@@ -30,6 +30,10 @@ Partial Class NuevaSolicitud
         Me.LbFechaFinal = New System.Windows.Forms.Label()
         Me.DateTimePickerFechaFinal = New System.Windows.Forms.DateTimePicker()
         Me.btSInsertar = New System.Windows.Forms.Button()
+        Me.LbDiasDisponibles = New System.Windows.Forms.Label()
+        Me.Label2 = New System.Windows.Forms.Label()
+        Me.Label3 = New System.Windows.Forms.Label()
+        Me.LblcantidadDias = New System.Windows.Forms.Label()
         Me.SuspendLayout()
         '
         'Label1
@@ -38,7 +42,7 @@ Partial Class NuevaSolicitud
         Me.Label1.BackColor = System.Drawing.SystemColors.ActiveCaptionText
         Me.Label1.Font = New System.Drawing.Font("Yu Gothic UI", 16.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label1.ForeColor = System.Drawing.SystemColors.ButtonHighlight
-        Me.Label1.Location = New System.Drawing.Point(1060, 158)
+        Me.Label1.Location = New System.Drawing.Point(949, 161)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(368, 59)
         Me.Label1.TabIndex = 0
@@ -49,7 +53,7 @@ Partial Class NuevaSolicitud
         Me.btnsalir.BackColor = System.Drawing.SystemColors.ActiveCaptionText
         Me.btnsalir.Font = New System.Drawing.Font("Yu Gothic UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnsalir.ForeColor = System.Drawing.SystemColors.ButtonHighlight
-        Me.btnsalir.Location = New System.Drawing.Point(1497, 764)
+        Me.btnsalir.Location = New System.Drawing.Point(1399, 767)
         Me.btnsalir.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.btnsalir.Name = "btnsalir"
         Me.btnsalir.Size = New System.Drawing.Size(147, 52)
@@ -62,7 +66,7 @@ Partial Class NuevaSolicitud
         Me.btnvolver.BackColor = System.Drawing.SystemColors.ActiveCaptionText
         Me.btnvolver.Font = New System.Drawing.Font("Yu Gothic UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnvolver.ForeColor = System.Drawing.SystemColors.ButtonHighlight
-        Me.btnvolver.Location = New System.Drawing.Point(1332, 764)
+        Me.btnvolver.Location = New System.Drawing.Point(1234, 767)
         Me.btnvolver.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.btnvolver.Name = "btnvolver"
         Me.btnvolver.Size = New System.Drawing.Size(147, 52)
@@ -75,7 +79,7 @@ Partial Class NuevaSolicitud
         Me.DateTimePickerFechaInicio.CalendarTitleBackColor = System.Drawing.SystemColors.ActiveCaptionText
         Me.DateTimePickerFechaInicio.CalendarTrailingForeColor = System.Drawing.SystemColors.ControlLightLight
         Me.DateTimePickerFechaInicio.Font = New System.Drawing.Font("Yu Gothic UI", 11.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.DateTimePickerFechaInicio.Location = New System.Drawing.Point(947, 332)
+        Me.DateTimePickerFechaInicio.Location = New System.Drawing.Point(849, 335)
         Me.DateTimePickerFechaInicio.Margin = New System.Windows.Forms.Padding(4)
         Me.DateTimePickerFechaInicio.Name = "DateTimePickerFechaInicio"
         Me.DateTimePickerFechaInicio.Size = New System.Drawing.Size(564, 47)
@@ -87,7 +91,7 @@ Partial Class NuevaSolicitud
         Me.lbFechaInicio.BackColor = System.Drawing.SystemColors.ActiveCaptionText
         Me.lbFechaInicio.Font = New System.Drawing.Font("Yu Gothic UI", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lbFechaInicio.ForeColor = System.Drawing.SystemColors.ButtonHighlight
-        Me.lbFechaInicio.Location = New System.Drawing.Point(1119, 258)
+        Me.lbFechaInicio.Location = New System.Drawing.Point(1021, 261)
         Me.lbFechaInicio.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.lbFechaInicio.Name = "lbFechaInicio"
         Me.lbFechaInicio.Size = New System.Drawing.Size(234, 45)
@@ -100,7 +104,7 @@ Partial Class NuevaSolicitud
         Me.LbFechaFinal.BackColor = System.Drawing.SystemColors.ActiveCaptionText
         Me.LbFechaFinal.Font = New System.Drawing.Font("Yu Gothic UI", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.LbFechaFinal.ForeColor = System.Drawing.SystemColors.ButtonHighlight
-        Me.LbFechaFinal.Location = New System.Drawing.Point(1119, 410)
+        Me.LbFechaFinal.Location = New System.Drawing.Point(1021, 413)
         Me.LbFechaFinal.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.LbFechaFinal.Name = "LbFechaFinal"
         Me.LbFechaFinal.Size = New System.Drawing.Size(220, 45)
@@ -112,7 +116,7 @@ Partial Class NuevaSolicitud
         Me.DateTimePickerFechaFinal.CalendarTitleBackColor = System.Drawing.SystemColors.ActiveCaptionText
         Me.DateTimePickerFechaFinal.CalendarTitleForeColor = System.Drawing.SystemColors.ButtonHighlight
         Me.DateTimePickerFechaFinal.Font = New System.Drawing.Font("Yu Gothic UI", 11.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.DateTimePickerFechaFinal.Location = New System.Drawing.Point(947, 482)
+        Me.DateTimePickerFechaFinal.Location = New System.Drawing.Point(849, 485)
         Me.DateTimePickerFechaFinal.Margin = New System.Windows.Forms.Padding(4)
         Me.DateTimePickerFechaFinal.Name = "DateTimePickerFechaFinal"
         Me.DateTimePickerFechaFinal.Size = New System.Drawing.Size(596, 47)
@@ -123,13 +127,55 @@ Partial Class NuevaSolicitud
         Me.btSInsertar.BackColor = System.Drawing.SystemColors.ActiveCaptionText
         Me.btSInsertar.Font = New System.Drawing.Font("Yu Gothic UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btSInsertar.ForeColor = System.Drawing.SystemColors.ButtonHighlight
-        Me.btSInsertar.Location = New System.Drawing.Point(1071, 565)
+        Me.btSInsertar.Location = New System.Drawing.Point(973, 568)
         Me.btSInsertar.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.btSInsertar.Name = "btSInsertar"
         Me.btSInsertar.Size = New System.Drawing.Size(357, 58)
         Me.btSInsertar.TabIndex = 35
         Me.btSInsertar.Text = "Enviar Solicitud"
         Me.btSInsertar.UseVisualStyleBackColor = False
+        '
+        'LbDiasDisponibles
+        '
+        Me.LbDiasDisponibles.AutoSize = True
+        Me.LbDiasDisponibles.Font = New System.Drawing.Font("Yu Gothic", 16.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LbDiasDisponibles.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
+        Me.LbDiasDisponibles.Location = New System.Drawing.Point(1531, 178)
+        Me.LbDiasDisponibles.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.LbDiasDisponibles.Name = "LbDiasDisponibles"
+        Me.LbDiasDisponibles.Size = New System.Drawing.Size(49, 55)
+        Me.LbDiasDisponibles.TabIndex = 36
+        Me.LbDiasDisponibles.Text = "0"
+        '
+        'Label2
+        '
+        Me.Label2.AutoSize = True
+        Me.Label2.Location = New System.Drawing.Point(1423, 135)
+        Me.Label2.Name = "Label2"
+        Me.Label2.Size = New System.Drawing.Size(242, 25)
+        Me.Label2.TabIndex = 37
+        Me.Label2.Text = "Vacaciones Disponibles"
+        '
+        'Label3
+        '
+        Me.Label3.AutoSize = True
+        Me.Label3.Location = New System.Drawing.Point(1466, 261)
+        Me.Label3.Name = "Label3"
+        Me.Label3.Size = New System.Drawing.Size(153, 25)
+        Me.Label3.TabIndex = 38
+        Me.Label3.Text = "Dias a solicitar"
+        '
+        'LblcantidadDias
+        '
+        Me.LblcantidadDias.AutoSize = True
+        Me.LblcantidadDias.Font = New System.Drawing.Font("Yu Gothic", 16.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LblcantidadDias.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
+        Me.LblcantidadDias.Location = New System.Drawing.Point(1531, 309)
+        Me.LblcantidadDias.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.LblcantidadDias.Name = "LblcantidadDias"
+        Me.LblcantidadDias.Size = New System.Drawing.Size(49, 55)
+        Me.LblcantidadDias.TabIndex = 39
+        Me.LblcantidadDias.Text = "0"
         '
         'NuevaSolicitud
         '
@@ -138,7 +184,11 @@ Partial Class NuevaSolicitud
         Me.BackColor = System.Drawing.SystemColors.ButtonHighlight
         Me.BackgroundImage = Global.PARCIAL1.My.Resources.Resources.WhatsApp_Image_2024_07_11_at_7_55_27_PM
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
-        Me.ClientSize = New System.Drawing.Size(1928, 910)
+        Me.ClientSize = New System.Drawing.Size(1895, 1038)
+        Me.Controls.Add(Me.LblcantidadDias)
+        Me.Controls.Add(Me.Label3)
+        Me.Controls.Add(Me.Label2)
+        Me.Controls.Add(Me.LbDiasDisponibles)
         Me.Controls.Add(Me.btSInsertar)
         Me.Controls.Add(Me.LbFechaFinal)
         Me.Controls.Add(Me.DateTimePickerFechaFinal)
@@ -164,4 +214,8 @@ Partial Class NuevaSolicitud
     Friend WithEvents LbFechaFinal As Label
     Friend WithEvents DateTimePickerFechaFinal As DateTimePicker
     Friend WithEvents btSInsertar As Button
+    Friend WithEvents LbDiasDisponibles As Label
+    Friend WithEvents Label2 As Label
+    Friend WithEvents Label3 As Label
+    Friend WithEvents LblcantidadDias As Label
 End Class
